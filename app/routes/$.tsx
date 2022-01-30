@@ -17,7 +17,7 @@ export default function PostRoute() {
   console.log(params['*'])
   return (
     <>
-      <h1>/$.tsx</h1>
+      <h1>Welcome to /$.tsx</h1>
       {params['*']}
     </>
   )
