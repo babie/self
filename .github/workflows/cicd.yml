@@ -21,7 +21,7 @@ jobs:
           node-version: 14.x
           cache: 'npm'
 
-      - name: Install
+      - name: Install Modules
         run: npm ci
 
       - name: Build
@@ -29,13 +29,6 @@ jobs:
 
       - name: Test
         run: npm test
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-dir
-          path: build
-          if-no-files-found: error
 
   deploy:
     needs: [build]
@@ -45,10 +38,14 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
         with:
-          name: build-dir
+          node-version: 14.x
+          cache: 'npm'
+
+      - name: Install Modules
+        run: npm ci
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@1.2.0
