@@ -47,6 +47,9 @@ jobs:
       - name: Install Modules
         run: npm ci
 
+      - name: Build
+        run: npm run build
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@1.2.0
         with:
