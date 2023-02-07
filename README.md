@@ -1,2 +1,2 @@
-# self
+# self template
 blog template.
