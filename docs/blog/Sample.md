@@ -1,3 +1,0 @@
-# Sample
-
-This is Sample.
